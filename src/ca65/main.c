@@ -255,6 +255,10 @@ static void SetSys (const char* Sys)
             NewSymbol ("__BBC__", 1);
             break;
 
+	case TGT_ATOM:
+	    NewSymbol ("__ATOM__", 1);
+	    break;
+
         case TGT_APPLE2:
             NewSymbol ("__APPLE2__", 1);
             break;

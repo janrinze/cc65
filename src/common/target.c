@@ -148,6 +148,7 @@ static const TargetEntry TargetMap[] = {
     {   "atari5200",    TGT_ATARI5200   },
     {   "atarixl",      TGT_ATARIXL     },
     {   "atmos",        TGT_ATMOS       },
+    {   "atom",		TGT_ATOM	},
     {   "bbc",          TGT_BBC         },
     {   "c128",         TGT_C128        },
     {   "c16",          TGT_C16         },
@@ -205,6 +206,7 @@ static const TargetProperties PropertyTable[TGT_COUNT] = {
     { "sim65c02",       CPU_65C02,      BINFMT_BINARY,      CTNone  },
     { "pce",            CPU_HUC6280,    BINFMT_BINARY,      CTNone  },
     { "gamate",         CPU_6502,       BINFMT_BINARY,      CTNone  },
+    { "atom",		CPU_6502,       BINFMT_BINARY,      CTNone  },
 };
 
 /* Target system */
