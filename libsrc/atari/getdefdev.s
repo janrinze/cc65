@@ -27,10 +27,10 @@
 __getdefdev:
 
         lda     __dos_type      ; which DOS?
-        cmp     #ATARIDOS
-        beq     finish
-        cmp     #MYDOS
-        beq     finish
+        cmp     #XDOS
+        beq     xdos            ; only supported on XDOS ...
+;       cmp     #OSADOS+1       ; (redundant: #OSADOS+1 = #XDOS)
+        bcs     finish          ; ... and on OS/A+ and SpartaDOS
 
         ldy     #BUFOFF
         lda     #0
@@ -60,7 +60,7 @@ __getdefdev:
         lda     (DOSVEC),y
         sta     crvec+2
 
-crvec:  jsr     $FFFF           ; will be set to crunch vector
+        jsr     crvec
 
 ; Get default device
 
@@ -69,7 +69,7 @@ crvec:  jsr     $FFFF           ; will be set to crunch vector
         sta     __defdev
         iny
         lda     (DOSVEC),y
-        sta     __defdev+1
+done:   sta     __defdev+1
 
 ; Return pointer to default device
 
@@ -77,7 +77,14 @@ finish: lda     #<__defdev
         ldx     #>__defdev
         rts
 
+; XDOS version
+
+xdos:   lda     XDEFDEV
+        bne     done
+
         .data
+
+crvec:  jmp     $FFFF           ; target address will be set to crunch vector
 
 ; Default device
 
