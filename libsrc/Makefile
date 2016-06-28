@@ -20,6 +20,7 @@ TARGETS = apple2    \
           atarixl   \
           atari5200 \
           atmos     \
+          atom      \
           $(CBMS)   \
           $(GEOS)   \
           gamate    \
