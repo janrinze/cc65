@@ -13,8 +13,9 @@
 	.import	     	_main
 	.import		__STACKBASE__	; Linker generated
 
-      .include		"zeropage.inc"
+        .include	"zeropage.inc"
 	.include     	"atom.inc"
+        .include        "atom_zpdefs.inc"
 
 ; ------------------------------------------------------------------------
 ; Actual code
