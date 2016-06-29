@@ -1,7 +1,8 @@
 ;
-; Startup code for cc65 (C64 version)
-;
-; This must be the *first* file on the linker command line
+; 
+; ATOMMC header file generation
+; Automatically calculates the file size and sets up a ATOMMC header
+; The filename will default to CC65GEN
 ;
 
 	.debuginfo		+
@@ -14,7 +15,7 @@
 ; Actual code
         .segment        "MMCHEADER"
 MMC_HEADER:
-        .byte           "CC65gen         "
+        .byte           "CC65GEN         "
 
         .addr           __MAIN_START__                  ; Load address
         .addr		__MAIN_START__			; Execution address
